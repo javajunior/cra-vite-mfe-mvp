@@ -1,6 +1,6 @@
 import "./App.css";
 
-function App() {
+function AppR2() {
   return (
     <>
       <h1>REMOTE 2 - VITE</h1>
@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppR2;
