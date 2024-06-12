@@ -1,13 +1,13 @@
 import "./App.css";
 
-import RemoteApp from "remote1/App";
+import AppR1 from "remote1/AppR1";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>HOST - CREATE REACT APP</p>
-        <RemoteApp />
+        <AppR1 />
       </header>
     </div>
   );
