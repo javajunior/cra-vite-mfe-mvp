@@ -1,5 +1,7 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 
+const deps = require("./package.json").dependencies;
+
 module.exports = {
   mode: "development",
   devServer: {
@@ -12,7 +14,16 @@ module.exports = {
         remotes: {
           remote1: "remote1@http://localhost:6002/remoteEntry.js",
         },
-        shared: ["react", "react-dom"],
+        shared: {
+          react: {
+            singleton: true,
+            requiredVersion: deps.react,
+          },
+          "react-dom": {
+            singleton: true,
+            requiredVersion: deps["react-dom"],
+          },
+        },
       }),
     ],
   },

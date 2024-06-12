@@ -1,5 +1,7 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 
+const deps = require("./package.json").dependencies;
+
 module.exports = {
   mode: "development",
   devServer: {
@@ -13,7 +15,16 @@ module.exports = {
         exposes: {
           "./AppR1": "./src/App",
         },
-        shared: ["react", "react-dom"],
+        shared: {
+          react: {
+            singleton: true,
+            requiredVersion: deps.react,
+          },
+          "react-dom": {
+            singleton: true,
+            requiredVersion: deps["react-dom"],
+          },
+        },
       }),
     ],
     configure: {
