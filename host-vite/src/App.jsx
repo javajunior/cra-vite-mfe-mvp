@@ -1,5 +1,6 @@
-import AppR2 from "remote2/AppR2";
 import "./App.css";
+
+import AppR2 from "remote2/AppR2";
 
 function App() {
   return (
