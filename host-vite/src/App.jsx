@@ -21,7 +21,7 @@ import React from "react";
 
 import "./App.css";
 
-const AppR2 = React.lazy(() => import("remote2/AppR1"));
+const AppR2 = React.lazy(() => import("remote2/AppR2"));
 
 function App() {
   return (
