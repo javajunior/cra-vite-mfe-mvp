@@ -20,6 +20,8 @@
 // dynamic import
 
 import React from "react";
+import FallbackComponent from "./FallbackComponent/FallbackComponent";
+import { ErrorBoundary } from "react-error-boundary";
 
 import "./App.css";
 
@@ -30,9 +32,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>HOST - CREATE REACT APP</p>
-        <React.Suspense fallback={<div>Loading Remote App...</div>}>
-          <AppR1 />
-        </React.Suspense>
+        <ErrorBoundary
+          FallbackComponent={FallbackComponent}
+          resetKeys={["someKey"]}
+        >
+          <React.Suspense fallback={<div>Loading Remote App...</div>}>
+            <AppR1 />
+          </React.Suspense>
+        </ErrorBoundary>
       </header>
     </div>
   );
